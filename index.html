@@ -3,85 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to My Page</title>
+  <title>Welcome to my page</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #fff8f4;
       font-family: 'Quicksand', sans-serif;
+      background-color: #fff9f5;
+      color: #333;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-
-    .container {
-      padding: 40px 20px;
-      max-width: 600px;
+      padding: 60px 20px;
     }
 
     h1 {
       font-size: 2.5rem;
-      color: #ff8fa3;
+      color: #ff8da1;
       margin-bottom: 10px;
     }
 
     .subtitle {
       font-size: 1.2rem;
       color: #6e6e6e;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .buttons {
       display: flex;
       flex-direction: column;
       gap: 15px;
+      width: 100%;
+      max-width: 320px;
     }
 
     .btn {
       text-decoration: none;
-      background-color: #ffe0ec;
+      background-color: #ffe4ec;
       color: #333;
-      padding: 14px 24px;
-      border-radius: 30px;
+      padding: 14px 20px;
+      border-radius: 999px;
       font-weight: 600;
+      text-align: center;
       font-size: 1rem;
       transition: all 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     .btn:hover {
-      background-color: #ffd6eb;
+      background-color: #ffcddd;
       transform: scale(1.03);
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 0.9rem;
       color: #b29b9b;
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Welcome to my page</h1>
-    <p class="subtitle">feel free to explore and click around ♡</p>
+  <h1>Welcome to my page</h1>
+  <p class="subtitle">feel free to explore and click around ♡</p>
 
-    <div class="buttons">
-      <a href="https://instagram.com/aneisasunflower" class="btn" target="_blank">📸 Instagram</a>
-      <a href="https://tiktok.com/@aneisasunflower" class="btn" target="_blank">🎥 TikTok</a>
-      <a href="https://open.spotify.com/user/313x25shwkvst5gtraybjecyw57u?si=2ae7d29061a44864" class="btn" target="_blank">🎵 Spotify</a>
-      <a href="https://pin.it/2MYIkA3YU" class="btn" target="_blank">📌 Pinterest</a>
-      <a href="http://vsco.co/aneisasunflower" class="btn" target="_blank">🎨 VSCO</a>
-      <a href="mailto:hello.x0xen@gmail.com" class="btn">✉️ Email Me</a>
-    </div>
+  <div class="buttons">
+    <a href="https://instagram.com/aneisasunflower" class="btn" target="_blank">📸 Instagram</a>
+    <a href="https://tiktok.com/@aneisasunflower" class="btn" target="_blank">🎥 TikTok</a>
+    <a href="https://open.spotify.com/user/313x25shwkvst5gtraybjecyw57u?si=2ae7d29061a44864" class="btn" target="_blank">🎵 Spotify</a>
+    <a href="https://pin.it/2MYIkA3YU" class="btn" target="_blank">📌 Pinterest</a>
+    <a href="http://vsco.co/aneisasunflower" class="btn" target="_blank">🎨 VSCO</a>
+    <a href="mailto:hello.x0xen@gmail.com" class="btn">✉️ Email Me</a>
+  </div>
 
-    <footer>
-      <p>Made with love & sparkles ✨</p>
-    </footer>
-  </main>
+  <footer>
+    <p>made with love & sparkles ✨</p>
+  </footer>
 </body>
 </html>
