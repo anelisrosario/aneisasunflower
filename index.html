@@ -31,6 +31,11 @@
       width: 100%;
       height: auto;
       display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
 
     /* Sparkle cursor trail */
@@ -166,7 +171,7 @@
     }
     setInterval(createDrop, 200);
 
-    // Heart explosion + sound
+    // Heart explosion + glitter sound
     document.addEventListener('click', (e) => {
       const sparkleSound = document.getElementById('glitter-sound');
       sparkleSound.currentTime = 0;
@@ -174,7 +179,7 @@
 
       for (let i = 0; i < 6; i++) {
         const heart = document.createElement('img');
-        heart.src = 'images/pixelheart.png'; // 💖 Your custom heart!
+        heart.src = 'images/pixelheart.png';
         heart.className = 'pixel-heart';
         heart.style.left = e.clientX + (Math.random() * 60 - 30) + 'px';
         heart.style.top = e.clientY + (Math.random() * 60 - 30) + 'px';
@@ -194,6 +199,25 @@
         });
       } else {
         bgMusic.pause();
+      }
+    });
+
+    // PROTECTION: disable right-click & drag
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("draggable", "false");
+        img.addEventListener("dragstart", e => e.preventDefault());
+      });
+    });
+
+    // PROTECTION: block common shortcut keys (view source, save)
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['s', 'u', 'c'].includes(e.key.toLowerCase())) ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
       }
     });
   </script>
