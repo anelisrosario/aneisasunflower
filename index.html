@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ane's Homepage</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/icon.png" type="image/png">
+
+  <!-- Pixel font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
     html, body {
       margin: 0;
@@ -27,6 +33,7 @@
       display: block;
     }
 
+    /* Sparkle cursor trail */
     .sparkle {
       position: fixed;
       pointer-events: none;
@@ -44,6 +51,7 @@
       100% { transform: scale(0.5); opacity: 0; }
     }
 
+    /* Sparkle rain */
     .sparkle-drop {
       position: fixed;
       top: -20px;
@@ -61,6 +69,7 @@
       100% { transform: translateY(120vh); }
     }
 
+    /* Heart burst */
     .pixel-heart {
       position: fixed;
       pointer-events: none;
@@ -73,6 +82,7 @@
       100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
     }
 
+    /* Hover button glow */
     area {
       outline: none;
     }
@@ -83,6 +93,7 @@
       cursor: url('https://emoji-cursor.vercel.app/💟'), auto;
     }
 
+    /* Music button */
     #music-player {
       position: fixed;
       bottom: 16px;
@@ -100,18 +111,20 @@
 </head>
 <body>
 
-  <!-- 🎵 Music toggle -->
+  <!-- 🎵 Music toggle button -->
   <div id="music-player">🎵 toggle music</div>
+
+  <!-- Background music -->
   <audio id="bg-music" loop>
     <source src="https://cdn.pixabay.com/download/audio/2023/06/03/audio_210df0c155.mp3?filename=lofi-chill-vlog-144998.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- ✨ Glitter sound FX -->
+  <!-- Glitter sound FX -->
   <audio id="glitter-sound" preload="auto">
     <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_3b42aa0ce6.mp3?filename=twinkle-click-112941.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- 🌸 Site layout -->
+  <!-- 🌸 Page content -->
   <div class="section"><img src="images/1.png" alt="Image 1"></div>
 
   <div class="section">
@@ -130,9 +143,9 @@
   <div class="section"><img src="images/4.png" alt="Image 4"></div>
   <div class="section"><img src="images/6.png" alt="Image 5"></div>
 
-  <!-- ✨ Magic Scripts -->
+  <!-- ✨ Magic scripts -->
   <script>
-    // Glitter cursor
+    // Sparkle cursor
     document.addEventListener('mousemove', (e) => {
       const sparkle = document.createElement('div');
       sparkle.classList.add('sparkle');
@@ -153,7 +166,7 @@
     }
     setInterval(createDrop, 200);
 
-    // Heart click explosion with glitter sound
+    // Heart explosion + sound
     document.addEventListener('click', (e) => {
       const sparkleSound = document.getElementById('glitter-sound');
       sparkleSound.currentTime = 0;
@@ -161,7 +174,7 @@
 
       for (let i = 0; i < 6; i++) {
         const heart = document.createElement('img');
-        heart.src = 'images/pixelheart.png'; // your own pixel heart
+        heart.src = 'images/pixelheart.png'; // 💖 Your custom heart!
         heart.className = 'pixel-heart';
         heart.style.left = e.clientX + (Math.random() * 60 - 30) + 'px';
         heart.style.top = e.clientY + (Math.random() * 60 - 30) + 'px';
@@ -171,7 +184,7 @@
       }
     });
 
-    // Fix music toggle behavior
+    // Music toggle
     const bgMusic = document.getElementById('bg-music');
     document.getElementById("music-player").addEventListener("click", () => {
       if (bgMusic.paused) {
