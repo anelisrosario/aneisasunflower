@@ -93,35 +93,13 @@
       filter: drop-shadow(0 0 5px #ff99cc);
       cursor: url('https://emoji-cursor.vercel.app/💟'), auto;
     }
-
-    #music-player {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      z-index: 999;
-      background: #ffe6f0;
-      border: 2px solid #ffbcd4;
-      border-radius: 10px;
-      padding: 8px 14px;
-      font-size: 10px;
-      color: #333;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
 
-  <!-- ❤ Music toggle -->
-  <div id="music-player">❤ music: on</div>
-
-  <!-- Background music -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/09/06/audio_d0b087feab.mp3?filename=fantasy-music-box-108434.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Glitter sound FX -->
+  <!-- ✨ Sound effect only -->
   <audio id="glitter-sound" preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_3b42aa0ce6.mp3?filename=twinkle-click-112941.mp3" type="audio/mpeg">
+    <source src="audio/fantasy-music-box-108434.mp3" type="audio/mpeg">
   </audio>
 
   <!-- 🌸 Page content -->
@@ -143,31 +121,8 @@
   <div class="section"><img src="images/4.png" alt="Image 4"></div>
   <div class="section"><img src="images/6.png" alt="Image 5"></div>
 
-  <!-- ✨ Magic Scripts -->
+  <!-- ✨ Scripts -->
   <script>
-    const bgMusic = document.getElementById('bg-music');
-    const musicToggle = document.getElementById("music-player");
-    bgMusic.volume = 0.4;
-
-    // Toggle button
-    musicToggle.addEventListener("click", () => {
-      if (bgMusic.paused) {
-        bgMusic.play().then(() => {
-          musicToggle.textContent = "❤ music: on";
-        });
-      } else {
-        bgMusic.pause();
-        musicToggle.textContent = "❤ music: off";
-      }
-    });
-
-    // Play music after *any* first user click (for autoplay fix)
-    window.addEventListener('click', () => {
-      if (bgMusic.paused) {
-        bgMusic.play().catch(() => {});
-      }
-    }, { once: true });
-
     // Sparkle trail
     document.addEventListener('mousemove', (e) => {
       const sparkle = document.createElement('div');
@@ -189,7 +144,7 @@
     }
     setInterval(createDrop, 200);
 
-    // Heart explosions
+    // Heart explosion + click sound
     document.addEventListener('click', (e) => {
       const sparkleSound = document.getElementById('glitter-sound');
       sparkleSound.currentTime = 0;
@@ -207,7 +162,7 @@
       }
     });
 
-    // Protection: no right-click, drag, copy, view-source
+    // Protection: no right-click, drag, shortcuts
     document.addEventListener("contextmenu", (e) => e.preventDefault());
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll("img").forEach(img => {
@@ -222,7 +177,7 @@
     });
   </script>
 
-  <!-- Responsive image map -->
+  <!-- Responsive map -->
   <script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
   <script>
     window.addEventListener('load', () => {
