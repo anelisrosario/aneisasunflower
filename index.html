@@ -38,7 +38,6 @@
       -ms-user-select: none;
     }
 
-    /* Sparkle cursor trail */
     .sparkle {
       position: fixed;
       pointer-events: none;
@@ -56,7 +55,6 @@
       100% { transform: scale(0.5); opacity: 0; }
     }
 
-    /* Sparkle rain */
     .sparkle-drop {
       position: fixed;
       top: -20px;
@@ -74,7 +72,6 @@
       100% { transform: translateY(120vh); }
     }
 
-    /* Heart burst */
     .pixel-heart {
       position: fixed;
       pointer-events: none;
@@ -87,7 +84,6 @@
       100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
     }
 
-    /* Hover button glow */
     area {
       outline: none;
     }
@@ -98,7 +94,6 @@
       cursor: url('https://emoji-cursor.vercel.app/💟'), auto;
     }
 
-    /* Music toggle button */
     #music-player {
       position: fixed;
       bottom: 16px;
@@ -116,18 +111,21 @@
 </head>
 <body>
 
-  <!-- Music toggle button -->
-  <div id="music-player">🎵 Toggle Music</div>
+  <!-- 🎵 Music toggle button -->
+  <div id="music-player">❤ music: on</div>
 
-  <!-- Sparkly Soft Background Music on loop -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2021/09/07/audio_2af853fb03.mp3?filename=sparkly-soft-ambience.mp3" type="audio/mpeg">
+  <!-- Soft background music -->
+  <audio id="bg-music" loop autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2022/09/06/audio_d0b087feab.mp3?filename=fantasy-music-box-108434.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Glitter sound FX -->
+  <audio id="glitter-sound" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_3b42aa0ce6.mp3?filename=twinkle-click-112941.mp3" type="audio/mpeg">
   </audio>
 
   <!-- 🌸 Page content -->
-  <div class="section">
-    <img src="images/1.png" alt="Image 1">
-  </div>
+  <div class="section"><img src="images/1.png" alt="Image 1"></div>
 
   <div class="section">
     <img src="images/2.png" alt="Buttons" usemap="#buttonmap">
@@ -141,19 +139,13 @@
     </map>
   </div>
 
-  <div class="section">
-    <img src="images/3.png" alt="Image 3">
-  </div>
-  <div class="section">
-    <img src="images/4.png" alt="Image 4">
-  </div>
-  <div class="section">
-    <img src="images/6.png" alt="Image 5">
-  </div>
+  <div class="section"><img src="images/3.png" alt="Image 3"></div>
+  <div class="section"><img src="images/4.png" alt="Image 4"></div>
+  <div class="section"><img src="images/6.png" alt="Image 5"></div>
 
   <!-- ✨ Magic scripts -->
   <script>
-    // Sparkle cursor trail
+    // Sparkle cursor
     document.addEventListener('mousemove', (e) => {
       const sparkle = document.createElement('div');
       sparkle.classList.add('sparkle');
@@ -174,7 +166,7 @@
     }
     setInterval(createDrop, 200);
 
-    // Heart explosion & glitter sound on click
+    // Heart explosion + glitter sound
     document.addEventListener('click', (e) => {
       const sparkleSound = document.getElementById('glitter-sound');
       sparkleSound.currentTime = 0;
@@ -192,24 +184,23 @@
       }
     });
 
-    // Music toggle functionality with text update
+    // Music toggle with heart label
     const bgMusic = document.getElementById('bg-music');
-    const musicPlayer = document.getElementById("music-player");
+    const musicToggle = document.getElementById("music-player");
+    bgMusic.volume = 0.4;
 
-    musicPlayer.addEventListener("click", () => {
+    musicToggle.addEventListener("click", () => {
       if (bgMusic.paused) {
-        bgMusic.volume = 0.6;
-        bgMusic.play().catch(err => {
-          console.log("Autoplay blocked until interaction.");
+        bgMusic.play().then(() => {
+          musicToggle.textContent = "❤ music: on";
         });
-        musicPlayer.textContent = "🎵 Music On";
       } else {
         bgMusic.pause();
-        musicPlayer.textContent = "🎵 Music Off";
+        musicToggle.textContent = "❤ music: off";
       }
     });
 
-    // PROTECTION: disable right-click & drag on images
+    // Block right-click & dragging
     document.addEventListener("contextmenu", (e) => e.preventDefault());
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll("img").forEach(img => {
@@ -218,18 +209,13 @@
       });
     });
 
-    // PROTECTION: block common shortcut keys (view source, save, etc.)
+    // Block shortcuts like Ctrl+S/U/C and F12
     document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey && ['s', 'u', 'c'].includes(e.key.toLowerCase())) || e.key === 'F12') {
+      if ((e.ctrlKey && ['s','u','c'].includes(e.key.toLowerCase())) || e.key === 'F12') {
         e.preventDefault();
       }
     });
   </script>
-
-  <!-- Glitter sound FX -->
-  <audio id="glitter-sound" preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_3b42aa0ce6.mp3?filename=twinkle-click-112941.mp3" type="audio/mpeg">
-  </audio>
 
   <!-- Responsive image map -->
   <script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
